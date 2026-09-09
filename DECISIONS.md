@@ -6,9 +6,9 @@
 
 | 항목 | 사실 |
 |---|---|
-| 런타임 | Python 3.14 / numpy 2.5 / pandas 2.3, Windows 11 |
+| 런타임 | Python 3.12+ (개발 3.14), Windows |
 | 증권사 API | 없다. 집행은 싸이칸 Plus(axis.exe) Win32 GUI 자동화뿐이다 |
-| 시세 | FinanceDataReader + 네이버(`siseJson`), 전부 무인증. pykrx 는 KRX 로그인을 요구해 쓰지 않는다 |
+| 시세 | FinanceDataReader + 네이버(`siseJson`), 전부 공개 시세(로그인 불필요). pykrx 는 KRX 로그인을 요구해 쓰지 않는다 |
 | LLM | 프로그램은 어떤 모델 API 도 호출하지 않는다 |
 | 실행 구조 | `run.py plan` → `imrl/{universe,data,alpha,portfolio,turnover,state}` → 주문서 JSON → `execute.py` → `imrl/risk.py` 게이트 → `imrl/hts_exec.py` |
 | 운영 전제 | 무인. 장중에 사람이 PC 앞에 없다고 가정한다 |
@@ -42,7 +42,7 @@
 | 회전율 파밍 자산 | CD금리·초단기채 ETF (459580 / 469830 / 357870) | 시장 베타는 전 참가자 공통이라 순위를 못 바꾼다. 일변동성 2.8% 인 KOSPI200 ETF 는 쓰지 않는다 |
 | 파밍 규모 | 부족분만 | 자연 회전율 20일 누적 481%(매도/원금 기준), 요건 500%. 고른 종목이 잘 될수록 랭킹이 안 바뀌어 회전이 멈추므로 파밍이 필요하다 |
 | 오픈소스 도입 | 0개 | qlib·FinRL·vectorbt 가 numpy 를 내리면 참가 불가 |
-| `max_drawdown_pct` | 40.0 | 전략 브레이크가 아니라 버그 서킷브레이커. 전략 20일 P10 이 −32% 라 폭주만 잡는다. 매도는 항상 허용 |
+| `max_drawdown_pct` | 40.0 | 전략 브레이크가 아니라 버그 서킷브레이커. 전략 20일 P10 이 −21% 라 폭주만 잡는다. 매도는 항상 허용 |
 
 비용 민감도: 왕복 0.22%(규정만) → 0.80% 에서 P(+80%)가 3.7% → 1.8% 로 반토막 난다. 1:1 미러링이라 시장충격은 0 이고 실질 비용은 미체결 역선택(왕복 0.73%p 실측)이다.
 

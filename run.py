@@ -1046,8 +1046,8 @@ def _relay_auto(cfg: dict, args) -> None:
                                  avg_ret=info.get("평균수익률"), total_amount=info.get("총거래금액"))
 
     if not rows:
-        # 매매자가 있는데 순위표가 비면 개장 전이 아니다. 인증 없이 읽히던
-        # 엔드포인트가 막혔거나 형식이 바뀐 것이니, 그날 관측을 잃기 전에 알린다.
+        # 매매자가 있는데 순위표가 비면 개장 전이 아니다. 순위표
+        # 출처가 바뀌었거나 형식이 바뀐 것이니, 그날 관측을 잃기 전에 알린다.
         if su["n_traded"] > 0:
             msg = (f"중계실 요약은 매매자 {su['n_traded']}명이라는데 순위표가 비어 있다. "
                    "자동 수집이 막혔을 수 있다. 오늘은 `run.py relay --top ... --mine ...` "

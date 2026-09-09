@@ -1,14 +1,14 @@
 # 자동 모의투자 시스템
 
 iM증권 대학생 모의투자대회(2026-09-08 ~ 10-08)용 **종가 단일가 1일 1회 리밸런싱** 시스템입니다.
-HTS(싸이칸 Plus)를 Win32 메시지로 조작해 주문하고, 텔레그램으로 알리며, 로컬 상황판에서 제어합니다.
+HTS(싸이칸 Plus)를 Win32 GUI 자동화로 조작해 주문하고, 텔레그램으로 알리며, 로컬 상황판에서 제어합니다.
 ## 동작 흐름
 
 장중에는 매매하지 않습니다.
 
 ```
 시세 수집 ─▶ 유니버스 ─▶ 점수화 ─▶ 계획 ─▶ 집행 ─▶ 대조 ─▶ 보고
-data.py     universe.py  alpha.py  portfolio.py  execute.py  reconcile  relay.py
+data.py     universe.py  alpha.py  portfolio.py  execute.py  run.py     relay.py
                                    turnover.py   risk.py                notify.py
                                                  hts_exec.py
 ```
@@ -49,7 +49,7 @@ copy config\secrets.env.example config\secrets.env
 2. `config/settings.json` 의 `contest.mock_account`, `contest.pen_name` 을 본인 값으로 변경.
 3. `python run.py check` 로 환경 점검.
 4. HTS 로그인은 직접 합니다. 이 프로그램은 비밀번호를 다루지 않습니다.
-5. 감시자 `scripts/start_watchdog.bat` (관리자 권한으로 자동 승격), 상황판 `scripts/dashboard.bat`, 터미널 모니터 `scripts/monitor.bat`, 스케줄러 등록 `tools/setup_tasks.ps1`.
+5. 감시자 `scripts/start_watchdog.bat` (관리자 권한으로 자동 승격), 상황판 `scripts/dashboard.bat`, 터미널 모니터 `scripts/monitor.bat`, 스케줄러 등록 `tools/setup_tasks.ps1` (관리자 PowerShell, `$CONTEST_START` 확인).
 
 ## 저장소 구성
 
@@ -60,7 +60,6 @@ copy config\secrets.env.example config\secrets.env
 | `config/` | 대회·전략 설정, HTS 컨트롤 ID 맵, 비밀값 예시 |
 | `scripts/` | 실행 배치 파일 |
 | `tools/` | 자가검사(`selftest_*.py`), 검증(`verify_*.py`), HTS 화면 탐색, 스케줄러 등록 |
-| `docs/` | 상황판 샘플 HTML |
 | `state/` | 런타임 상태 (커밋 제외, `backtest_current.json` 만 포함) |
 
 ## 유의 사항

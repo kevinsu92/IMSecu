@@ -18,7 +18,7 @@
   VK + 스캔코드를 실은 SendInput 은 keybd_event 와 **같은 경로**다.
   즉 "SendInput 으로 바꾸면 될지도"는 시도할 가치가 없다 — 지금 하는 것과 같은 일이다.
 
-백그라운드 실행이 불가능한 이유 (실측, research/background_execution/FINDINGS.md)
+백그라운드 실행이 불가능한 이유 (실측)
   전역 입력은 **입력 데스크톱**으로만 간다. 별도 데스크톱(CreateDesktop)에서는
   SendInput·keybd_event 가 둘 다 ERROR_ACCESS_DENIED(5) 로 실패한다.
   화면잠금도 입력 데스크톱을 Winlogon 으로 바꾸므로 같은 실패다.

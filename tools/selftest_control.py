@@ -75,7 +75,7 @@ try:
     ck("정상 변경 200", st == 200 and r["ok"])
     c = json.loads(CFG.read_text(encoding='utf-8'))
     ck("설정 파일에 반영", c["risk_options"]["take_profit_enabled"] is True and c["risk_options"]["take_profit_pct"] == 33.0)
-    ck("다른 설정은 그대로", c["contest"]["league_code"] == "80159")
+    ck("다른 설정은 그대로", c["contest"]["league_code"] == "00000")
     st, r = call("/api/risk", {"take_profit_enabled": False})
     ck("되돌림", json.loads(CFG.read_text(encoding='utf-8'))["risk_options"]["take_profit_enabled"] is False)
 

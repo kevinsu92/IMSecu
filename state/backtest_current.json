@@ -18,7 +18,7 @@
     "cost_round_trip": 0.0022,
     "fill": "close"
   },
-  "note": "문서 REVIEW_REQUEST.md §3.2 / §7 이 인용하는 표의 원본. 경보필터 적용 후 재실행분이다. 이전 파일(backtest_results.json, 13:13)은 경보필터·top2 전환 이전 데이터라 현재 설정을 설명하지 못한다.",
+  "note": "문서 TRADING_RULES.md §12 가 인용하는 표의 원본. 경보필터 적용 후 재실행분이다. 이전 파일(backtest_results.json, 13:13)은 경보필터·top2 전환 이전 데이터라 현재 설정을 설명하지 못한다.",
   "runs": [
     {
       "days": 909,

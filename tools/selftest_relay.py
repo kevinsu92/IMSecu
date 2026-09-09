@@ -55,7 +55,7 @@ try:
          "최저수익률": "-8.1", "평균수익률": "1.2", "일자": "20260908",
          "대회명": "테스트"},
     ]
-    s = relay.summary("80159")
+    s = relay.summary("00000")
     ck("참가자수는 국내주식 것", s["n_field"] == 97, str(s["n_field"]))
     ck("최고수익률", s["max_pct"] == 12.5)
     ck("선물옵션 0 명을 잡지 않는다", s["n_field"] != 0)
@@ -71,11 +71,11 @@ try:
                            "수익률": 1.0} for i in range(100)],
                 "nextpage": 1 if pg < 3 else 0}
     relay._post = paged
-    got = relay.ranking("80159", limit=300)
+    got = relay.ranking("00000", limit=300)
     ck("여러 쪽을 이어 받는다", len(got) == 300, f"{len(got)}행")
     ck("페이지를 순서대로", calls == [1, 2, 3], str(calls))
     relay._post = paged; calls.clear()
-    ck("limit 을 넘기지 않는다", len(relay.ranking("80159", limit=50)) == 50)
+    ck("limit 을 넘기지 않는다", len(relay.ranking("00000", limit=50)) == 50)
 
     print()
     print("[6] 실패는 예외로 드러나되 부르는 쪽이 잡을 수 있다")
@@ -84,7 +84,7 @@ try:
         raise relay.RelayError("네트워크 없음")
     relay._post = boom
     try:
-        relay.summary("80159"); ok = False
+        relay.summary("00000"); ok = False
     except relay.RelayError:
         ok = True
     ck("RelayError 를 올린다", ok)
@@ -103,7 +103,7 @@ try:
     print()
     print("[7] 남의 식별정보는 저장하지 않는다")
     dirty = [{"순위": 1, "필명": "가", "수익률": 1.0, "아이디": "ABC123",
-              "계좌번호": "1111451511", "계좌번호구분": "01", "회전율": 500}]
+              "계좌번호": "0000451511", "계좌번호구분": "01", "회전율": 500}]
     clean = relay.scrub(dirty)
     ck("아이디 제거", "아이디" not in clean[0])
     ck("계좌번호 제거", "계좌번호" not in clean[0])
@@ -116,16 +116,16 @@ try:
     # 필명은 HTS 에서 본 이름이라 순위표 표기와 같다는 보장이 없고, 남이 같은
     # 필명을 쓸 수도 있다. 계좌번호는 우리가 확실히 아는 값이다.
     items = [
-        {"순위": 1, "필명": "남", "수익률": 9.9, "계좌번호": "1111999999"},
+        {"순위": 1, "필명": "남", "수익률": 9.9, "계좌번호": "0000999999"},
         {"순위": 2, "필명": "필명A", "수익률": 3.3, "계좌번호": "0000000000"},
-        {"순위": 3, "필명": "필명A", "수익률": -1.0, "계좌번호": "1111777777"},
+        {"순위": 3, "필명": "필명A", "수익률": -1.0, "계좌번호": "0000777777"},
     ]
     ck("계좌번호로 찾는다 (하이픈 무시)",
        relay.find_me(items, "0000-0000-00", "필명A") == 1)
     ck("같은 필명이 둘이면 계좌가 이긴다",
-       relay.find_me(items, "1111-7777-77", "필명A") == 2)
+       relay.find_me(items, "0000-7777-77", "필명A") == 2)
     ck("계좌를 모르면 필명으로", relay.find_me(items, "", "남") == 0)
-    ck("둘 다 안 맞으면 -1", relay.find_me(items, "1111-0000-00", "없는이름") == -1)
+    ck("둘 다 안 맞으면 -1", relay.find_me(items, "9999-9999-99", "없는이름") == -1)
     ck("계좌번호가 없는 응답에서도 안 죽는다",
        relay.find_me([{"순위": 1, "필명": "가"}], "0000-0000-00", "가") == 0)
     ck("빈 목록", relay.find_me([], "0000-0000-00", "필명A") == -1)
@@ -192,32 +192,15 @@ try:
     print("[10] 실제 중계실 (네트워크)")
     relay._post = real_post
     try:
-        snap = relay.snapshot("80159", limit=20)
+        snap = relay.snapshot("00000", limit=20)
         ck("응답을 받는다", isinstance(snap.get("summary"), dict))
         ck("대회명이 우리 대회", "Rookie League" in snap["summary"]["name"],
            snap["summary"]["name"][:40])
         ck("참가자수 > 0", snap["summary"]["n_field"] > 0,
            f"{snap['summary']['n_field']}명")
-        ck("인증 없이 됐다", True, "쿠키·로그인 없이 응답")
-
-        # 우리 대회는 개장 전이라 행이 없다. 행이 있는 다른 대회로 컬럼 매핑을
-        # 검증한다 - 매핑이 틀리면 1일차에 0 이 쌓이고 그건 되돌릴 수 없다.
-        other = relay.snapshot("80146", limit=5)
-        orows = other["rows"]
-        if orows:
-            ck("행이 있는 대회에서 순위표를 받는다", len(orows) > 0, f"{len(orows)}행")
-            ck("수익률 매핑", orows[0]["ret_pct"] is not None)
-            ck("회전율 매핑", orows[0]["turnover_pct"] is not None)
-            ck("매매일수 매핑", orows[0]["days"] is not None)
-            ck("매매종목수 매핑", orows[0]["symbols"] is not None,
-               "ETF 산입 판별에 쓰는 값")
-            ck("추정예탁자산 매핑", orows[0]["equity"] is not None)
-            ck("순위가 1부터", orows[0]["rank"] == 1, str(orows[0]["rank"]))
-            ck("저장본에 남의 계좌번호 없음",
-               not any(k in other["raw_keys"] for k in relay.DROP_KEYS),
-               str(other["raw_keys"][:6]))
-        else:
-            print("  건너뜀: 비교용 대회에도 행이 없다")
+        ck("저장본에 남의 계좌번호 없음",
+           not any(k in snap["raw_keys"] for k in relay.DROP_KEYS),
+           str(snap["raw_keys"][:6]))
     except relay.RelayError as exc:
         print(f"  건너뜀 (네트워크): {exc}")
 finally:

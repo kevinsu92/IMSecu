@@ -221,8 +221,8 @@ function risk(){
     pill(r.take_profit_enabled?'ok':'wait',
          r.take_profit_enabled?('켜짐 +'+r.take_profit_pct+'%'):'꺼짐')+
     '</div><div class="note">수익률이 문턱에 닿으면 전량 '+
-    '현금화하고 남은 기간 쉰다. <b>과거 모형 실험</b>(2026-09-06, 참가 97명·필드 σ 25%p 가정, '+
-    'tools/options_test.py)에서는 +20% 고정 익절이 입상 빈도를 46.3%→50.8% 로 올리고 '+
+    '현금화하고 남은 기간 쉰다. <b>과거 모형 실험</b>(2026-09-06, 참가 약 100명·필드 σ 25%p 가정, '+
+    'tools/selftest_options.py)에서는 +20% 고정 익절이 입상 빈도를 46.3%→50.8% 로 올리고 '+
     '1등 빈도를 2.62%→0.00% 로 없앴다 (+30% 0.03%, +50% 0.86%, +80% 2.46%). '+
     '0회는 확률 0 의 증명이 아니고, 현재 순위·잔여기간에서의 조건부 비교는 별도다.</div></div>'+
   '<div class="card"><div class="lab">손실 복구</div><div>'+
@@ -512,7 +512,7 @@ function controls(){
     '<div style="margin-top:10px">'+(sk?'<button onclick="act(\'/api/skip\',{on:false})">해제</button>'
       :'<button onclick="act(\'/api/skip\',{on:true},\'오늘 하루 매도·매수를 건너뜁니다.\')">오늘 건너뛰기</button>')+'</div></div>'+
   '<div class="card"><div class="lab">익절</div><div>'+(r.take_profit_enabled?pill('ok','켜짐 +'+r.take_profit_pct+'%'):pill('wait','꺼짐'))+
-    '</div><div class="note">과거 모형 실험(2026-09-06, 참가 97명·σ 25%p 가정)에서는 +20% 고정 익절이 1등 빈도를 2.62%→0.00% 로, 입상 빈도를 46.3%→50.8% 로 바꿨다. '+
+    '</div><div class="note">과거 모형 실험(2026-09-06, 참가 약 100명·σ 25%p 가정)에서는 +20% 고정 익절이 1등 빈도를 2.62%→0.00% 로, 입상 빈도를 46.3%→50.8% 로 바꿨다. '+
     '현재 순위·잔여기간 기준의 조건부 비교는 별도다. 적용은 다음 15:05 계획부터.</div>'+
     '<div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+
     '<label class="tiny" for="tp">문턱</label><input id="tp" aria-label="익절 문턱 퍼센트" type="number" min="5" max="200" step="1" value="'+r.take_profit_pct+'" style="width:80px">% '+

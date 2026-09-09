@@ -1,8 +1,7 @@
-# Python 3.12+, Windows 전용 (pywin32/pywinauto 는 HTS 창 조작에 필요)
+# Python 3.12+, Windows 전용 (pywin32 는 HTS 창 조작에 필요)
 numpy>=1.26
 pandas>=2.1
 requests>=2.31
 pywin32>=306
-pywinauto>=0.6.8
 Pillow>=10.0
 finance-datareader>=0.9.90

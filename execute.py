@@ -72,9 +72,9 @@ class Tee:
 
 # 킬 스위치 파일 위치.
 #
-# state/ 는 OneDrive 동기화 폴더 안이다. 동기화는 수십 초에서 분 단위로 지연되므로
+# state/ 는 클라우드 동기화 폴더 안일 수 있다. 동기화는 수십 초에서 분 단위로 지연되므로
 # "원격에서 즉시 정지"라는 목적에 맞지 않는다. 로컬 경로를 **먼저** 보고,
-# OneDrive 경로도 함께 본다 — 둘 중 하나만 있어도 정지다.
+# 동기화 경로도 함께 본다 — 둘 중 하나만 있어도 정지다.
 KILL_FILE = ROOT / "state" / "KILL"
 KILL_FILE_LOCAL = Path("C:/imrl_state/KILL")
 
@@ -110,7 +110,7 @@ def kill_switch_active() -> bool:
 
     무인 운영 중 뭔가 잘못됐을 때 사람이 개입할 수 있는 유일한 수단이다.
     state/KILL 파일을 만들면 그 뒤로는 주문을 내지 않는다. 파일 하나면 되므로
-    텔레그램이 죽어 있어도, 원격에서도(OneDrive 동기화) 멈출 수 있다.
+    텔레그램이 죽어 있어도, 원격에서도(폴더 동기화) 멈출 수 있다.
     """
     return KILL_FILE.exists() or KILL_FILE_LOCAL.exists()
 

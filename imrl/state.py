@@ -31,7 +31,7 @@ def _write(path: Path, obj) -> None:
     보유·원장·리더보드가 전부 이 함수를 지난다. 쓰는 도중에 프로세스가 죽으면
     (작업 스케줄러의 시간 제한, 재부팅, 전원) 반쯤 쓰인 JSON 이 남고, 다음 실행은
     보유를 못 읽어 빈 계좌로 계획한다 — 첫날 매수를 두 번 하는 종류의 사고다.
-    replace 는 같은 볼륨 안에서 원자적이다. state/ 가 OneDrive 안이라 더 그렇다.
+    replace 는 같은 볼륨 안에서 원자적이다. state/ 가 동기화 폴더 안이면 더 그렇다.
     """
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")

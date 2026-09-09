@@ -260,7 +260,7 @@ KOSPI200 ETF를 쓰지 않는 이유: 일변동성 2.8%가 파밍 비중에서 �
 | 변동성 통제 대조 (300회) | 일평균 +0.057%, P(+50%) 2.7%, P(+80%) 0.4%, p 0.003 | `python tools/verify_control.py` → `volatility_controlled_control` |
 | 라이브 제약(원금 상한 + 승격) 분포 | 중앙값 11.1%, P(+50%) 10.1%, P(+80%) 1.5%, P(<0) 35.4% | `python tools/backtest_live.py` → `live_constrained` |
 | P(1등), 참가 300명 가정 | σ_f 15/20/25/30%p → 10.2 / 2.9 / 1.0 / 0.3% | `python tools/p_first.py` → `p_first` |
-| P(1등)·입상, 참가 97명 σ_f 25%p | 1등 2.58%, 입상(25위) 46.3%, P(<0) 35.5% | `python tools/downside.py` → `downside.ranks_by_sigma_f` |
+| P(1등)·입상, 참가 약 100명 σ_f 25%p | 1등 2.58%, 입상(25위) 46.3%, P(<0) 35.5% | `python tools/downside.py` → `downside.ranks_by_sigma_f` |
 | 하방 (889구간) | P10 −21.0%, P5 −28.4%, 최악 −46.2%, MDD P90 28.6% | `python tools/downside.py` → `downside` |
 | 왕복비용 민감도 | 0.22% → +0.673%(t 3.37) / 1.22% → +0.274%(t 1.37) / 2.22% → −0.125%(t −0.63) | `python tools/verify_cost.py` → `cost_sensitivity` |
 | 오프셋 비상계획 | 최적 0.30%, 기대 일평균 +0.248% | `python tools/offset_contingency.py` → `offset_contingency` |

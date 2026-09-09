@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""전부 멈춘다 — 사용자 지시 "작동 멈춰라" (2026-09-09).
+"""전부 멈춘다 — 긴급 정지 스크립트.
 
 1. state/KILL 을 만든다 (신규 주문 전송 중지 — 집행·감시자가 본다)
 2. IMRL_* 스케줄 작업을 전부 비활성화한다 (자기 자신 IMRL_Execute 는 마지막)
@@ -26,7 +26,7 @@ def _ps(cmd: str) -> str:
 def main() -> int:
     kill = ROOT / "state" / "KILL"
     kill.parent.mkdir(parents=True, exist_ok=True)
-    kill.write_text(f"사용자 지시 '작동 멈춰라' {datetime.now():%Y-%m-%d %H:%M:%S}\n", encoding="utf-8")
+    kill.write_text(f"stop_all {datetime.now():%Y-%m-%d %H:%M:%S}\n", encoding="utf-8")
     print(f"stop_all: KILL 생성 {kill}")
 
     names = _ps("(Get-ScheduledTask -TaskName 'IMRL_*' | Select-Object -ExpandProperty TaskName) -join ','")
