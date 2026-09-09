@@ -1,0 +1,39 @@
+__pycache__/
+*.pyc
+.venv/
+
+# 비밀값 — 절대 커밋하지 않는다. config/secrets.env.example 을 복사해서 채운다.
+config/secrets.env
+
+# 런타임 상태 (로그, 캐시, HTS 스크린샷, 순위표 등). 검수 문서가 인용하는
+# 백테스트 산출물만 남긴다.
+state/*
+!state/backtest_current.json
+
+# 개인 산출물·임시 파일
+output/
+tmp/
+
+# graphify 지식그래프 (재생성 가능)
+graphify-out/
+
+# 에이전트 도구 설정
+.claude/
+.codex/
+.agents/
+
+# 편집기·빌드·캐시
+*.log
+.env
+*.env
+!config/secrets.env.example
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# 런타임 제안 파일
+research/proposals/

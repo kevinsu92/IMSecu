@@ -1,0 +1,139 @@
+{
+  "_note": "싸이칸플러스(cyKhan Plus) UI 매핑. 2026-09-05 실측.",
+  "_critical_admin": "HTS는 requireAdministrator 매니페스트로 관리자 권한 실행된다. 자동화 스크립트도 반드시 관리자 권한으로 실행해야 한다. 일반 권한에서는 PrintWindow가 0을 반환하고 컨트롤 조작이 UIPI에 막힌다.",
+  "_critical_dpi": "스크립트 시작 시 windll.shcore.SetProcessDpiAwareness(2) 호출 필수. 누락하면 GetWindowRect 좌표가 어긋나 캡처가 잘린다.",
+  "_critical_input": "입력 경로 확정(2026-09-05 실측): 종목·수량·가격 모두 '메시지 클릭으로 캐럿 이동 + MapVirtualKey 스캔코드를 실은 keybd_event' 로 넣는다. WM_CHAR 와 pywinauto send_keys(SendInput)는 커스텀 뷰에 전혀 반영되지 않는다. keybd_event 는 전역 입력이므로 HTS 가 포그라운드여야 하고, 매 입력 직전 assert_focus() 로 검증한다. 검증 없이 전역 입력을 보내면 다른 창에 오입력된다(실제 발생).",
+  "process_name": "axis",
+  "launcher": "C:\\iM증권\\cyKhanPlus\\exe\\cyKhanPlus.exe",
+  "install_root": "C:\\iM증권\\cyKhanPlus",
+  "menu_definition_file": "C:\\iM증권\\cyKhanPlus\\tab\\cykhan.menu",
+  "login_window": {
+    "class": "#32770",
+    "title": "싸이칸 Plus",
+    "_tab_ids_note": "탭 컨트롤 ID는 활성 상태에 따라 바뀐다(모의투자 탭 활성 전 1069, 활성 후 1071). 텍스트로 찾는 편이 안전하다.",
+    "tab_cert_login": 1057,
+    "tab_id_login": 1060,
+    "tab_mock_login": 1069,
+    "mock_id_edit": 1001,
+    "mock_password_edit": 1002,
+    "connect_button": 1005
+  },
+  "main_window": {
+    "title": "싸이칸 Plus",
+    "title_marker_mock": "(S071)모의시장",
+    "_screen_search": "메인 창의 최상단 Edit 컨트롤이 화면 검색창이다. 여기에 WM_CHAR 로 화면번호나 화면명을 넣고 Enter(WM_KEYDOWN/WM_CHAR/WM_KEYUP VK_RETURN)를 보내면 화면이 열린다.",
+    "_screen_search_note": "화면 코드(CK120000)가 아니라 숫자 화면번호(1200) 또는 화면명(주식주문)을 받는다. 잘못된 값이면 '일치되는 항목이 없습니다' 팝업(약 753x99)이 뜬다. 이 팝업은 작아서 창 탐색 필터의 크기 하한을 낮게 잡아야 감지된다."
+  },
+  "screens": {
+    "주식주문": 1200,
+    "주식주문-5호가": 1201,
+    "_codes_from_menu_file": {
+      "주식주문": "CK120000",
+      "주식주문-5호가": "CK120100",
+      "주식미니주문": "CK120200",
+      "주식예약주문": "CK120400",
+      "주식호가주문": "CK120600",
+      "주식멀티주문": "CK120800",
+      "원클릭주문(BuyNSell)": "CK121200",
+      "현금매도": "CK121400",
+      "현금매수": "CK121500",
+      "미체결확인": "CK399500"
+    }
+  },
+  "order_window": {
+    "title": "[1200] 주식주문",
+    "class_prefix": "Afx:",
+    "size_px": [
+      2453,
+      1577
+    ],
+    "account_display": "우상단에 계좌번호와 필명이 표시된다",
+    "tabs": [
+      "매도",
+      "매수",
+      "정정",
+      "취소",
+      "신용매도",
+      "신용매수"
+    ],
+    "bottom_tabs": [
+      "매도가능",
+      "매수가능",
+      "미체결",
+      "체결내역",
+      "신용잔고",
+      "신용가능",
+      "원장잔고",
+      "원장체결"
+    ],
+    "order_types": [
+      "보통가",
+      "시장가(체크박스)"
+    ],
+    "market_radio": [
+      "스마트",
+      "KRX",
+      "NXT"
+    ],
+    "submit_shortcut": "F12",
+    "controls": {
+      "_note": "창(2453x1577) 기준 상대좌표. imrl/hts_exec.py 의 LAYOUT 과 동일하게 유지할 것.",
+      "tab_sell": [
+        1215,
+        191
+      ],
+      "tab_buy": [
+        1304,
+        191
+      ],
+      "symbol_rect": [
+        1355,
+        236,
+        1553,
+        284
+      ],
+      "qty_rect": [
+        1355,
+        305,
+        1553,
+        353
+      ],
+      "price_rect": [
+        1355,
+        374,
+        1553,
+        422
+      ],
+      "market_checkbox": [
+        1764,
+        397
+      ],
+      "submit_button": [
+        2284,
+        677
+      ],
+      "form_crop": [
+        1200,
+        150,
+        2450,
+        760
+      ],
+      "_submit_labels": "매수는 '매수(F9)', 매도는 '매도(F12)'. 좌표는 동일하다.",
+      "_order_amount": "주문금액 칸에 수량×가격이 자동 계산돼 표시된다. 입력 검증에 쓸 수 있다."
+    },
+    "_pitfalls": [
+      "종목 Edit 을 '창의 첫 Edit' 으로 고르면 상단 계좌 영역 Edit 이 잡힌다. 반드시 좌표로 특정할 것.",
+      "종목 칸을 WM_CHAR 백스페이스로 지우면 이전 값이 남아 새 값 앞에 붙는다(005930 → 005930005930).",
+      "종목을 WM_CHAR 로만 넣으면 글자는 들어가지만 앱이 종목 조회를 하지 않아 종목명·시세가 이전 종목으로 남는다. 그대로 전송하면 엉뚱한 종목을 주문하게 된다.",
+      "종목 Edit 은 서브클래싱돼 WM_GETTEXT 가 빈 문자열을 돌려주기도 한다. 되읽기 실패를 오류로 단정하지 말 것.",
+      "수량·가격 칸에는 자식 창이 없다. 값을 되읽을 수 없으므로 캡처로 확인해야 한다.",
+      "주문 화면 제목은 열린 직후 '[1200] 주식주문' 이지만 이후 'Window1' 로 바뀐다. 제목으로만 찾지 말 것."
+    ]
+  },
+  "_todo": [
+    "H5 실주문 1주 검증 (2026-09-08 개장 후)",
+    "전송 전 캡처를 텔레그램으로 보내 확인받는 흐름 연결",
+    "OCR 로 수량·가격·주문금액 자동 대조 (완전 무인화 2단계)",
+    "체결내역·원장잔고 파싱 → fill 자동화"
+  ]
+}

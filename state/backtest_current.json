@@ -1,0 +1,576 @@
+{
+  "generated_at": "2026-09-05T23:12:22",
+  "panel": {
+    "symbols": 421,
+    "days": 935,
+    "first": "2022-11-08",
+    "last": "2026-09-04"
+  },
+  "config": {
+    "weights": {
+      "ret20": 1.0,
+      "ret5": -0.3,
+      "amount_surge": 0.0,
+      "volatility": 0.5
+    },
+    "alert_filter": true,
+    "alert_margin": 0.85,
+    "cost_round_trip": 0.0022,
+    "fill": "close"
+  },
+  "note": "문서 REVIEW_REQUEST.md §3.2 / §7 이 인용하는 표의 원본. 경보필터 적용 후 재실행분이다. 이전 파일(backtest_results.json, 13:13)은 경보필터·top2 전환 이전 데이터라 현재 설정을 설명하지 못한다.",
+  "runs": [
+    {
+      "days": 909,
+      "daily_mean_pct": 0.6733961608263305,
+      "t_stat": 3.3724162511765803,
+      "win20_median_pct": 11.344550622772886,
+      "win20_over_50pct_rate": 14.848143982002249,
+      "win20_over_80pct_rate": 3.712035995500562,
+      "win20_over_100pct_rate": 0.8998875140607425,
+      "win20_negative_rate": 37.79527559055118,
+      "win20_p10_pct": -23.277885571893798,
+      "win20_max_pct": 146.03882881252588,
+      "independent_windows": 45,
+      "top_n": 2,
+      "volatility_weight": 0.5,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.6571490362799698,
+      "t_stat": 3.3449180041071687,
+      "win20_median_pct": 9.864977035042056,
+      "win20_over_50pct_rate": 16.197975253093365,
+      "win20_over_80pct_rate": 3.149606299212598,
+      "win20_over_100pct_rate": 1.3498312710911136,
+      "win20_negative_rate": 38.47019122609674,
+      "win20_p10_pct": -24.718839191903836,
+      "win20_max_pct": 137.87591985001183,
+      "independent_windows": 45,
+      "top_n": 2,
+      "volatility_weight": 1.0,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.5831159398215346,
+      "t_stat": 3.663091765984496,
+      "win20_median_pct": 10.045666247533136,
+      "win20_over_50pct_rate": 11.361079865016873,
+      "win20_over_80pct_rate": 2.249718785151856,
+      "win20_over_100pct_rate": 1.4623172103487065,
+      "win20_negative_rate": 37.232845894263214,
+      "win20_p10_pct": -20.933372588454837,
+      "win20_max_pct": 149.02332200446202,
+      "independent_windows": 45,
+      "top_n": 3,
+      "volatility_weight": 0.5,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.5062263858246582,
+      "t_stat": 3.1181978011269886,
+      "win20_median_pct": 6.931469817565228,
+      "win20_over_50pct_rate": 12.148481439820022,
+      "win20_over_80pct_rate": 2.249718785151856,
+      "win20_over_100pct_rate": 1.0123734533183353,
+      "win20_negative_rate": 39.37007874015748,
+      "win20_p10_pct": -22.518452070309397,
+      "win20_max_pct": 146.20223225564223,
+      "independent_windows": 45,
+      "top_n": 3,
+      "volatility_weight": 1.0,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.4157217240464878,
+      "t_stat": 2.947742057171058,
+      "win20_median_pct": 8.47690807030881,
+      "win20_over_50pct_rate": 7.64904386951631,
+      "win20_over_80pct_rate": 0.6749156355455568,
+      "win20_over_100pct_rate": 0.22497187851518563,
+      "win20_negative_rate": 38.13273340832396,
+      "win20_p10_pct": -21.321475531265406,
+      "win20_max_pct": 106.79056563125657,
+      "independent_windows": 45,
+      "top_n": 4,
+      "volatility_weight": 0.5,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.4218195218191347,
+      "t_stat": 2.952571921227599,
+      "win20_median_pct": 8.702911158839344,
+      "win20_over_50pct_rate": 6.974128233970754,
+      "win20_over_80pct_rate": 0.7874015748031495,
+      "win20_over_100pct_rate": 0.562429696287964,
+      "win20_negative_rate": 36.895388076490434,
+      "win20_p10_pct": -21.14384031134333,
+      "win20_max_pct": 114.23517974710471,
+      "independent_windows": 45,
+      "top_n": 4,
+      "volatility_weight": 1.0,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.3196469378952518,
+      "t_stat": 2.597240500833226,
+      "win20_median_pct": 7.217104542441,
+      "win20_over_50pct_rate": 1.687289088863892,
+      "win20_over_80pct_rate": 0.3374578177727784,
+      "win20_over_100pct_rate": 0.0,
+      "win20_negative_rate": 38.47019122609674,
+      "win20_p10_pct": -17.99545108800582,
+      "win20_max_pct": 87.10228587076689,
+      "independent_windows": 45,
+      "top_n": 6,
+      "volatility_weight": 0.5,
+      "period": "full"
+    },
+    {
+      "days": 909,
+      "daily_mean_pct": 0.34050298816815305,
+      "t_stat": 2.7701250772828248,
+      "win20_median_pct": 7.612181803740792,
+      "win20_over_50pct_rate": 2.3622047244094486,
+      "win20_over_80pct_rate": 0.44994375703037126,
+      "win20_over_100pct_rate": 0.0,
+      "win20_negative_rate": 38.80764904386952,
+      "win20_p10_pct": -17.70888007641476,
+      "win20_max_pct": 94.43253369094143,
+      "independent_windows": 45,
+      "top_n": 6,
+      "volatility_weight": 1.0,
+      "period": "full"
+    },
+    {
+      "days": 257,
+      "daily_mean_pct": 1.0089431435924472,
+      "t_stat": 2.9117626852885534,
+      "win20_median_pct": 23.28411025155246,
+      "win20_over_50pct_rate": 16.033755274261605,
+      "win20_over_80pct_rate": 0.8438818565400843,
+      "win20_over_100pct_rate": 0.0,
+      "win20_negative_rate": 26.160337552742618,
+      "win20_p10_pct": -20.002547538157014,
+      "win20_max_pct": 87.67965983562132,
+      "independent_windows": 12,
+      "top_n": 2,
+      "volatility_weight": 0.5,
+      "period": "2023_and_before"
+    },
+    {
+      "days": 652,
+      "daily_mean_pct": 0.5411330096439806,
+      "t_stat": 2.231102581297657,
+      "win20_median_pct": 5.073997591543799,
+      "win20_over_50pct_rate": 14.556962025316455,
+      "win20_over_80pct_rate": 4.90506329113924,
+      "win20_over_100pct_rate": 1.2658227848101267,
+      "win20_negative_rate": 43.35443037974683,
+      "win20_p10_pct": -24.634679343784615,
+      "win20_max_pct": 146.03882881252582,
+      "independent_windows": 32,
+      "top_n": 2,
+      "volatility_weight": 0.5,
+      "period": "2024_onward"
+    }
+  ],
+  "volatility_sweep": {
+    "generated_at": "2026-09-06T00:12:32",
+    "note": "top2 고정, 변동성 가중치만 변화. 공격 국면 상한 근거.",
+    "runs": [
+      {
+        "days": 909,
+        "daily_mean_pct": 0.6733961608263305,
+        "t_stat": 3.3724162511765803,
+        "win20_median_pct": 11.344550622772886,
+        "win20_over_50pct_rate": 14.848143982002249,
+        "win20_over_80pct_rate": 3.712035995500562,
+        "win20_negative_rate": 37.79527559055118,
+        "top_n": 2,
+        "volatility_weight": 0.5,
+        "period": "full"
+      },
+      {
+        "days": 909,
+        "daily_mean_pct": 0.6571490362799698,
+        "t_stat": 3.3449180041071687,
+        "win20_median_pct": 9.864977035042056,
+        "win20_over_50pct_rate": 16.197975253093365,
+        "win20_over_80pct_rate": 3.149606299212598,
+        "win20_negative_rate": 38.47019122609674,
+        "top_n": 2,
+        "volatility_weight": 1.0,
+        "period": "full"
+      },
+      {
+        "days": 909,
+        "daily_mean_pct": 0.5441701684665446,
+        "t_stat": 2.811917147822317,
+        "win20_median_pct": 7.526667138120913,
+        "win20_over_50pct_rate": 8.998875140607424,
+        "win20_over_80pct_rate": 2.699662542182227,
+        "win20_negative_rate": 39.82002249718785,
+        "top_n": 2,
+        "volatility_weight": 1.5,
+        "period": "full"
+      },
+      {
+        "days": 909,
+        "daily_mean_pct": 0.3758169051254735,
+        "t_stat": 1.9660210911292402,
+        "win20_median_pct": 3.756012791799712,
+        "win20_over_50pct_rate": 8.661417322834646,
+        "win20_over_80pct_rate": 1.574803149606299,
+        "win20_negative_rate": 45.44431946006749,
+        "top_n": 2,
+        "volatility_weight": 2.0,
+        "period": "full"
+      },
+      {
+        "days": 909,
+        "daily_mean_pct": 0.4320747006907174,
+        "t_stat": 2.242528595040633,
+        "win20_median_pct": 3.011564078308493,
+        "win20_over_50pct_rate": 9.111361079865016,
+        "win20_over_80pct_rate": 2.5871766029246346,
+        "win20_negative_rate": 44.881889763779526,
+        "top_n": 2,
+        "volatility_weight": 3.0,
+        "period": "full"
+      }
+    ]
+  },
+  "random_benchmark": {
+    "trials": 1000,
+    "seed": 20260906,
+    "signal_daily_mean_pct": 0.6733961608263305,
+    "signal_win20_over_50pct_rate": 14.848143982002249,
+    "signal_win20_over_80pct_rate": 3.712035995500562,
+    "random_daily_mean_pct": -0.05993450477167606,
+    "random_daily_max_pct": 0.2274572887056821,
+    "random_win20_over_50pct_rate_mean": 0.5645669291338584,
+    "random_win20_over_80pct_rate_mean": 0.03487064116985377,
+    "trials_beating_signal": 0,
+    "p_value": 0.000999000999000999,
+    "generated_at": "2026-09-06T00:12:32",
+    "note": "같은 규정필터·경보필터 후보군에서 매일 2종목 무작위 선택. 비용 동일."
+  },
+  "alert_filter_effect": {
+    "top2_alert_on": {
+      "days": 909,
+      "daily_mean_pct": 0.6733961608263305,
+      "t_stat": 3.3724162511765803,
+      "win20_median_pct": 11.344550622772886,
+      "win20_over_50pct_rate": 14.848143982002249,
+      "win20_over_80pct_rate": 3.712035995500562,
+      "win20_negative_rate": 37.79527559055118,
+      "top_n": 2,
+      "alert_filter": true
+    },
+    "top2_alert_off": {
+      "days": 909,
+      "daily_mean_pct": 0.4363146077582852,
+      "t_stat": 1.9176214599796542,
+      "win20_median_pct": 3.87289180487691,
+      "win20_over_50pct_rate": 13.610798650168729,
+      "win20_over_80pct_rate": 3.374578177727784,
+      "win20_negative_rate": 45.10686164229472,
+      "top_n": 2,
+      "alert_filter": false
+    },
+    "top3_alert_on": {
+      "days": 909,
+      "daily_mean_pct": 0.5831159398215346,
+      "t_stat": 3.663091765984496,
+      "win20_median_pct": 10.045666247533136,
+      "win20_over_50pct_rate": 11.361079865016873,
+      "win20_over_80pct_rate": 2.249718785151856,
+      "win20_negative_rate": 37.232845894263214,
+      "top_n": 3,
+      "alert_filter": true
+    },
+    "top3_alert_off": {
+      "days": 909,
+      "daily_mean_pct": 0.4393221691452026,
+      "t_stat": 2.323598407385032,
+      "win20_median_pct": 7.63603869945968,
+      "win20_over_50pct_rate": 6.186726659167604,
+      "win20_over_80pct_rate": 1.3498312710911136,
+      "win20_negative_rate": 40.607424071991,
+      "top_n": 3,
+      "alert_filter": false
+    },
+    "generated_at": "2026-09-06T00:15:14",
+    "note": "시장경보 사전회피 필터 적용/미적용 비교. top3 는 문서의 과거 수치(t 2.32->3.66) 대조용."
+  },
+  "cost_sensitivity": {
+    "generated_at": "2026-09-06T01:20:24",
+    "note": "시장충격은 1:1 미러링이라 구조적으로 0 이고, 미체결 역선택도 오프셋 1% 에서 체결률 99% 대라 0.007%p 수준이다. 실제로 남은 비용은 시뮬레이터가 내 지정가로 체결하는 경우다. 1일차(매수)와 2일차(매도) 관측으로 판별한다.",
+    "runs": [
+      {
+        "cost_round_trip": 0.0022,
+        "label": "규정만 (종가 체결)",
+        "daily_mean_pct": 0.6733961608263305,
+        "t_stat": 3.3724162511765803,
+        "win20_median_pct": 11.344550622772886,
+        "win20_over_50pct_rate": 14.848143982002249,
+        "win20_over_80pct_rate": 3.712035995500562
+      },
+      {
+        "cost_round_trip": 0.0122,
+        "label": "매수만 지정가 체결 (+1%)",
+        "daily_mean_pct": 0.274056226832931,
+        "t_stat": 1.3734047838755208,
+        "win20_median_pct": 3.5903853472392333,
+        "win20_over_50pct_rate": 8.211473565804274,
+        "win20_over_80pct_rate": 1.124859392575928
+      },
+      {
+        "cost_round_trip": 0.0222,
+        "label": "매수·매도 모두 지정가 체결 (+1%/-1%)",
+        "daily_mean_pct": -0.12528370716046838,
+        "t_stat": -0.6266900041909653,
+        "win20_median_pct": -4.590624117843511,
+        "win20_over_50pct_rate": 4.049493813273341,
+        "win20_over_80pct_rate": 0.562429696287964
+      },
+      {
+        "cost_round_trip": 0.0422,
+        "label": "매도 오프셋이 -3% 였다면",
+        "daily_mean_pct": -0.9239635751472676,
+        "t_stat": -4.570965907278139,
+        "win20_median_pct": -18.359762258024816,
+        "win20_over_50pct_rate": 0.6749156355455568,
+        "win20_over_80pct_rate": 0.0
+      }
+    ]
+  },
+  "live_constrained": {
+    "generated_at": "2026-09-06T01:04:44",
+    "note": "원금 기준 단일종목 상한과 차순위 승격을 반영한 20일 구간 시뮬레이션. 기존 backtest.run() 은 이 제약이 없어 라이브 상방을 과대평가한다.",
+    "params": {
+      "rule_cap": 0.45,
+      "n_max": 6,
+      "investable": 0.98,
+      "cost_round_trip": 0.0022,
+      "window": 20
+    },
+    "runs": [
+      {
+        "label": "클램프 없음 (기존 문서 가정)",
+        "n_windows": 889,
+        "median_pct": 11.271527162502814,
+        "mean_pct": 14.879326019299507,
+        "over_50pct": 14.848143982002249,
+        "over_80pct": 3.59955005624297,
+        "over_100pct": 0.8998875140607425,
+        "negative_pct": 37.68278965129358,
+        "max_pct": 145.76368561024714
+      },
+      {
+        "label": "클램프만 (수정 전 코드 - 현금으로 눕던 상태)",
+        "n_windows": 889,
+        "median_pct": 11.310638345679468,
+        "mean_pct": 11.849089867646121,
+        "over_50pct": 7.64904386951631,
+        "over_80pct": 0.44994375703037126,
+        "over_100pct": 0.0,
+        "negative_pct": 36.445444319460066,
+        "max_pct": 90.20591943834582
+      },
+      {
+        "label": "클램프+차순위 승격 (수정 후 실제)",
+        "n_windows": 889,
+        "median_pct": 11.086413014633688,
+        "mean_pct": 13.568266152905629,
+        "over_50pct": 10.123734533183352,
+        "over_80pct": 1.4623172103487065,
+        "over_100pct": 0.6749156355455568,
+        "negative_pct": 35.43307086614173,
+        "max_pct": 123.74445450850105
+      }
+    ]
+  },
+  "p_first": {
+    "문서 가정 (클램프 미반영)": {
+      "p_first_pct": {
+        "15": 14.27,
+        "20": 5.85,
+        "25": 1.98,
+        "30": 0.65
+      },
+      "median_pct": 11.27,
+      "over_80pct": 3.6
+    },
+    "라이브 제약 반영": {
+      "p_first_pct": {
+        "15": 10.22,
+        "20": 2.86,
+        "25": 0.96,
+        "30": 0.3
+      },
+      "median_pct": 11.09,
+      "over_80pct": 1.46
+    },
+    "generated_at": "2026-09-06T15:28:43",
+    "assumptions": {
+      "n_field": 300,
+      "field_mean_pct": 0.0,
+      "trials": 200000,
+      "field_model": "shifted-lognormal",
+      "seed": 20260906
+    },
+    "note": "기존 14.4/5.9/2.0/0.7% 는 클램프 미반영 분포로 낸 값이라 과대추정이다."
+  },
+  "volatility_controlled_control": {
+    "signal": {
+      "daily_mean_pct": 0.6733961608263305,
+      "over_50pct": 14.848143982002249,
+      "over_80pct": 3.712035995500562
+    },
+    "trials": 300,
+    "seed": 20260906,
+    "free": {
+      "daily_mean_pct": -0.05486594628726705,
+      "over_50pct": 0.5770528683914511,
+      "over_80pct": 0.03899512560929884,
+      "over_80pct_p95": 0.22497187851518563,
+      "trials_matching_signal_tail": 0,
+      "tail_p_value": 0.0033222591362126247
+    },
+    "band": {
+      "daily_mean_pct": 0.05732178347549839,
+      "over_50pct": 2.661417322834646,
+      "over_80pct": 0.4094488188976378,
+      "over_80pct_p95": 1.8053993250843658,
+      "trials_matching_signal_tail": 0,
+      "tail_p_value": 0.0033222591362126247
+    },
+    "generated_at": "2026-09-06T01:18:18",
+    "note": "신호가 뽑은 종목과 같은 변동성 5분위에서 무작위 2종목을 뽑은 대조군. 자유 무작위 대조는 신호의 변동성 틸트 때문에 꼬리 비교가 동어반복이 된다."
+  },
+  "offset_contingency": {
+    "generated_at": "2026-09-06T01:23:12",
+    "assumption": "시뮬레이터가 내 지정가로 체결하는 경우. 1일차 관측으로 판별한다.",
+    "adverse_selection_round_trip": 0.0073,
+    "best_offset": 0.003,
+    "runs": [
+      {
+        "offset": 0.0005,
+        "fill_buy": 0.621,
+        "fill_sell": 0.512,
+        "cost_round_trip": 0.0032,
+        "daily_mean_pct": 0.6334621674269906,
+        "t_stat": 3.172992652763502,
+        "expected_daily_pct": 0.11671000597216119
+      },
+      {
+        "offset": 0.001,
+        "fill_buy": 0.645,
+        "fill_sell": 0.557,
+        "cost_round_trip": 0.004200000000000001,
+        "daily_mean_pct": 0.5935281740276505,
+        "t_stat": 2.9734230074010317,
+        "expected_daily_pct": 0.12367567224783454
+      },
+      {
+        "offset": 0.002,
+        "fill_buy": 0.759,
+        "fill_sell": 0.656,
+        "cost_round_trip": 0.006200000000000001,
+        "daily_mean_pct": 0.5136601872289707,
+        "t_stat": 2.573905256787462,
+        "expected_daily_pct": 0.21393808210678877
+      },
+      {
+        "offset": 0.003,
+        "fill_buy": 0.84,
+        "fill_sell": 0.739,
+        "cost_round_trip": 0.0082,
+        "daily_mean_pct": 0.4337922004302907,
+        "t_stat": 2.1739827506785376,
+        "expected_daily_pct": 0.2475854483614442
+      },
+      {
+        "offset": 0.005,
+        "fill_buy": 0.929,
+        "fill_sell": 0.866,
+        "cost_round_trip": 0.0122,
+        "daily_mean_pct": 0.274056226832931,
+        "t_stat": 1.3734047838755208,
+        "expected_daily_pct": 0.20276823472779296
+      },
+      {
+        "offset": 0.01,
+        "fill_buy": 0.99,
+        "fill_sell": 0.982,
+        "cost_round_trip": 0.0222,
+        "daily_mean_pct": -0.12528370716046838,
+        "t_stat": -0.6266900041909653,
+        "expected_daily_pct": -0.1313308700888637
+      }
+    ]
+  },
+  "downside": {
+    "windows": 889,
+    "pct": {
+      "P1": -34.84,
+      "P5": -28.4,
+      "P10": -21.02,
+      "P25": -8.16,
+      "P50": 10.98,
+      "P75": 31.99,
+      "P90": 50.17,
+      "P95": 60.13,
+      "P99": 89.89
+    },
+    "p_negative_pct": 35.43,
+    "p_below_10_pct": 22.83,
+    "p_below_20_pct": 10.12,
+    "worst_pct": -46.18,
+    "mdd_p90_pct": 28.57,
+    "p_hit_drawdown_limit_pct": 2.14,
+    "ranks_by_sigma_f": {
+      "15": [
+        15.91,
+        21.99,
+        25.7,
+        39.37,
+        52.69,
+        35.21
+      ],
+      "20": [
+        6.66,
+        11.59,
+        15.66,
+        31.49,
+        49.34,
+        35.34
+      ],
+      "25": [
+        2.58,
+        5.19,
+        7.95,
+        24.56,
+        46.33,
+        35.47
+      ],
+      "30": [
+        1.1,
+        2.36,
+        3.92,
+        18.8,
+        43.62,
+        35.47
+      ]
+    },
+    "note": "겹치는 20일 창이라 표본끼리 상관된다. 유효 표본수는 창 수보다 훨씬 적다."
+  }
+}
