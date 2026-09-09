@@ -191,8 +191,12 @@ try:
     print()
     print("[10] 실제 중계실 (네트워크)")
     relay._post = real_post
+    import json as _json
+    _league = str(_json.load(open("config/settings.json", encoding="utf-8"))["contest"]["league_code"])
     try:
-        snap = relay.snapshot("00000", limit=20)
+        if _league == "00000":
+            raise relay.RelayError("settings.json 의 league_code 가 자리표시자다 - 실제 대회코드를 넣으면 검사한다")
+        snap = relay.snapshot(_league, limit=20)
         ck("응답을 받는다", isinstance(snap.get("summary"), dict))
         ck("대회명이 우리 대회", "Rookie League" in snap["summary"]["name"],
            snap["summary"]["name"][:40])
